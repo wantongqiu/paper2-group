@@ -1,0 +1,284 @@
+---
+title: "Improvement in Young Girls' Future Life"
+author: "Shi Yingxuan, Wantong Qiu, Jingxian Zhai"
+date: "25/02/2022"
+toc: true 
+output: 
+  pdf_document: 
+    latex_engine: xelatex
+  html_document:
+    theme: united 
+    df_print: paged
+abstract: "In many developing countries, compared with men, women often owns weaker human rights. They will always receive unequal treatment, as well as premature marriage and some sexual violence. This paper introduced an intervention which lauched in Uganda to educate entrepreneurship knowledge to these girls and help them increase their long-term income to achieve economic empowerment. According to ITT estimation, entrepreneurial ability of girls in treatment group increases 1.8pp(3%). Also, the rate of having sex unwilling reduced 5.3pp lower for the girls in treatment group. Here is what the paper will discuss: (1) the rate of population of adolescent young girls comparing to which in the U.S. is more huge. (2) reducing the rate of having babies and postponing marriage could support women's long-term workforce. (3) Improved entrepreneurship skills could support women's own bussiness."
+bibliography: [ref_list_.bib]
+link-citations: yes
+nocite: '@*'
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(formattable)
+library(fmsb)
+library(gt)
+library(dplyr)
+library(ggplot2)
+library("openxlsx")
+library("readxl")
+library(grid)
+library(magrittr)
+library(gridExtra)
+
+```
+
+```{r,echo=FALSE,warning=FALSE, message=FALSE}
+Paper2_2 <- read_csv("/Users/wantongqiu/Desktop/paper2/Paper2_2.csv")
+table2 <- read_csv("/Users/wantongqiu/Desktop/paper2/Paper2_data1.csv")
+```
+
+
+# 1 Introduction
+Women's status has been an endless topic throughout history,although the status of women in today's society is constantly improving, there are still many developing countries in the world where women are not respected. There are also many great historical figures who have made great contributions to the equality and freedom of women. For example, Mary Astell fought for women's rights. Although the voice of women has improved a lot in our day and age, at that time, it was a big event to speak for women. She was a great philosopher. It was and still is very important that women should have marital autonomy and equal educational opportunities.[@aa]
+
+It is easy to find if we want to women's status change fundamentally correct guidance necessary for young women, especially when we find that Africa's youth population accounts for more than 30 percent of the world's population, it is a very big proportion, so for female teenagers and their correct outlook on life is so important to guide and teach them vocational skills.[@bb]We need the help of some organizations to help women in these slow developing countries realize their value in life. For example, like BRAC is the world's largest Bangladeshi non-governmental development organization to help and give people the opportunity to realize their potential.[@cc]
+
+This paper is organized as follows: In the Methodology section, we would explain the background about the ELA program and the way that divides girls into treatment and control groups. Then, we introduce the raw data used in the original paper. We select the variables that we used in the paper and explain them. In the Model section, we introduce a complex linear model $$y_{ijt} =\alpha + \gamma_i treat_{ij} + \beta X_{ij0} +\delta y_{ij0} + \varepsilon_{ijt}   $$ used in the original paper. In the Results section, we find ELA program impacts on participants’ economic empowerment and control over the body respectively. Finally, the Discussion section explains three situations. Adolescent girls try to run their own business but they should think of higher death rates of business; Adolescent girls’ financial future about loan; women’s roles in society.
+
+
+\newpage
+
+# 2 Methodology
+
+## 2.1 ELA program
+
+Youth Empowerment and Livelihoods (ELA) is a program that helps adolescent girls have a better chance at life by teaching them life skills and providing microfinance. The program focuses on adolescent girls from disadvantaged backgrounds in Bangladesh, Uganda, Tanzania, Afghanistan, South Sudan, and most recently Haiti and Sierra Leone.[@dd]  In the ELA project, intervention methods may vary depending on the characteristics and culture of different regions. However, we can find that in these different places, girls are discriminated against and abused. We will discuss how the ELA program pays more attention to the financial literacy, livelihoods, and microfinance of adolescents in Uganda.[@dd]
+
+In this ELA program, intervention is carried out from two aspects, the first is life skills and the second is vocational skills. Life skills aim to improve adolescent girls' awareness of independent life. It is necessary to teach them about sexual awareness and the importance of learning knowledge and other relevant knowledge transmissions so as to make them realize the influence of early marriage and pregnancy on adolescent girls. Keep them learning so they can take control of their own lives. On the other hand, the second and more important aspect is vocational skills. It is difficult to gain human rights’ freedoms without vocational skills because vocational skills give these adolescent girls skills that can support themselves and thus achieve economic independence. So vocational skills are a very important part here.
+
+At the same time that adolescents learn these skills, the ELA program can provide a safe place for adolescent girls who are from 14 to 20 years old to meet with children of their own age and talk about all the things or problems they want to talk about, Besides, the things they don't want to talk about with school or with their families, they can share their stories in these clubs. And help them learn to communicate, share with others and help others from here. In these clubs, there will be a counselor, and the counselor is expected to be older than the adolescent girls, but not by much. These activities, which are independent of skills learning, and they can participate in these activities in their spare time.
+
+## 2.2 Participants
+
+In Uganda, there are 10 branches places that will be chosen to evaluate. There are 5 embranchments are from the countrysides of Iganga and Jinja,  the others are from Kampala and Mukono. Because we decide to use the randomized control trial in this ELA program, which means there are 2 different groups, one group belongs to the villages, another group belongs to the urban or semi-urban regions.  
+
+## 2.3 Treatment and Control
+
+Specifically, we randomly choose 15 communities in each of these two regions. After that, we will divide the chosen 15 communities into 2 parts, there are 5 communities will be the control groups, another 10 communities will be the receive treatment groups. This means that there are 100 receive treatment groups and 50 control groups in total.
+
+In this ELA program, we divided the treatment time into two stages: the first two years (midline), which can be regarded as when girls are in adolescence, and the second two years (endline), which can be imagined as when girls enter adulthood. Then for the first two years, the adolescents can be trained in life skills and vocational skills. As the original plan, 2 years(midline) after the intervention, 50 randomly assigned groups of the 100 received treatment groups would have received additional microfinance help. But very few adolescent girls actually get microfinance support because the provision for microfinance is not made available to them in advance. Therefore, when analyzing the results of the next two years(endline), the control groups will be compared according to the acceptance of receive treatment groups in the first two years(midline) and those who did not accept microfinance support.
+
+
+
+# 3 Data
+Basically, this paper uses the R statistical language (R Core Team 2020) and tidyverse packages (Wickham et al. 2019). The paper was made by RMarkdown (Allaire et al. 2020).Tables were made using kableExtra (Zhu 2020), gt(), formattable (Kun Ren and Kenton Russell, 2021), dplyr(Wickham et al. 2021), For the bar plot, Figure 1, we use ggplot2 package (v3.3.3; Wickham, 2016) and also analysis of the data was done using the knitr package (v1.31; Xie, 2021). The dataset named "Uganda ELA panel wide", in a .dta format was downloaded on an American Economic Association website. The dat set contains 5969 observations of 149 variables. However, the paper focuses on economic empowerment and control over body so there are many additional variables and they should be removed. 
+
+Then, we briefly discussion of the population of women in developed country (U.S.) and developing country (Uganda) by Figure 1. We split the female population by 6 age groups and we can see the significant difference in young women age groups. To be continue, Table 2 shows 6 observations for this part and we can devide them into two categories. One is control over the body such as Has babies, Married or Cohabiting, etc. and the other one is aspirations. Then, discuss the ITT estimation impacts on the girls. 
+
+
+## 3.1 Data Characteristic 
+### 3.1.1 Economic Empowerment
+
+```{r echo=FALSE,warning=FALSE, message=FALSE}
+table2 %>% gt() %>% tab_header(
+    title = "Table 1: The Data of Economic Empowerment",
+    subtitle = "Mean values at treatment group and control group"
+  ) %>% tab_options(table.border.top.color = "white",
+        heading.border.bottom.color = "black",table_body.border.bottom.color = "black",
+        table.border.bottom.color = "white",
+        table_body.hlines.color = "white")  
+```
+In the part of economic empowerment, we used 14 variables. Firstly, we used the variables that are related to entrepreneurial ability. Entrep_total is the entrepreneurial scores for each girls who are in the program. Entreprenship_1 - 10 are scores of different entrepreneurial skills, such as business opportunities, run business, collect money and so on. Therefore, table 1 presents mean values of scores of entrepreneurial ability at treatment and control groups. We just select 3 main variables from 10 entrepreneurial skills on table 1. Difference is difference between treatment group and control group. Secondly, we used the variables that are related to self-employed and employed activities. We can see the values, they are the percentage of the number of girl who are employed or self-employed at treatment and control groups respectively. 
+
+\newpage
+## 3.1.2 Control Over the Body
+
+### Female Population 
+
+The U.S. is a typically developed country in the whole world, so we will talk about the distribution of population rate of women in two countries. According to the comparison of female population in Uganda and the U.S. [@a3]. We could easily find out the majority population of female is between the age group from 25 to 65 (and older) while the most population of women in Uganda is between the age group from 0 to 24 [@a4]. In these two bar plot we could find the population difference between developed country and developing country. It can be seen from this bar plot that the rapid growth of the youth population has also aggravated the difficulty of employment for women. In the case of many young women, it is inevitable that there will be some gender unfair treatment, we will find out in result part. 
+
+
+```{r, echo=FALSE, warning=FALSE}
+
+
+df_1 <- read.xlsx("female population1.xlsx")
+Mydata1<-df_1 %>% select(age_group, U.S.)
+
+bar1 <- Mydata1 %>%
+  mutate(Mydata1 = fct_lump(age_group)) %>%
+  ggplot( aes(x=age_group, U.S.)) +
+    geom_bar(stat="identity", fill="#f68060") +
+    coord_flip() +
+    xlab("") +
+    theme_bw()+ 
+  labs(caption = "(HOWDEN, 2011)")
+
+
+Mydata2<-df_1 %>% select(age_group, Uganda)
+bar2 <- Mydata2 %>%
+  mutate(Mydata2 = fct_lump(age_group)) %>%
+  ggplot( aes(x=age_group, Uganda)) +
+    geom_bar(stat="identity", fill="#f68060") +
+    coord_flip() +
+    xlab("") +
+    theme_bw()+ 
+  labs(caption = "(Bandiera, 2018)") 
+grid.arrange(bar1, bar2, nrow = 1, ncol = 2, top=textGrob("Figure 1: Percentage of Female Population in 2010"))
+
+```
+
+\newpage
+
+# 4 Model
+
+In this ELA program, we mainly analyze those adolescent girls who are willing to participate. So here we're going to focus on adolescent girls’ intent to treat, and here we can use ITT, and then we're going to use Ordinary least Squares (OLS) ANCOVA. OLS is a type of linear least-squares method which can estimate the parameters we don't know in a linear regression model. Analysis of Covariance (ANCOVA) is a general linear model that blends ANOVA and regression and the statistical power can be increased by reducing the intragroup error variance. 
+$$y_{ijt} =\alpha + \gamma_i treat_{ij} + \beta X_{ij0} +\delta y_{ij0} + \varepsilon_{ijt}   $$
+Specifically, in the above model, y (ijt) is specifically expressed as the effective results of intervention on the midline of t1 and the endline of t2 for i adolescent girls in community j. Secondly, the treat(ij) is equal to one if i adolescent girls are treated in Community j, and zero if they are not in. Besides, r1 and r2 represent the effect of ITT in the ELA program measured by t1 (midline) and t2 (endline), the coefficients of interest in t1 (midline) and t2 (endline). In the meantime, x (ij0) controls the age of adolescent girls at baseline (t = 0), Y (ij0) is the baseline result. Finally, e (ijt) is the disturbance term of the j community cluster.
+
+# 5 Results
+
+## 5.1 Economic Empowerment
+Table1 summarizes the ITT estimated values on three different dimensions of economic empowerment at midline and endline of the program. Column 1 presents the outcomes at baseline in control communities. Column 2 reports that ITT estimates that adolescent girls experienced midline, and then column 3 reports that the estimates at endline. Moreover, each row describes that baseline values and ITT estimates are in different aspects which are entrepreneurial ability, income engaging activities and self-employed.
+
+
+```{r,echo=FALSE}
+table1 <- Paper2_2 %>% select(`Three ways`,Baseline,Midline,Endline)
+table1 %>% gt() %>% tab_header(
+    title = "Table 1: Economic Empowerment",
+    subtitle = "ITT estimated values at baseline, midline and endline"
+  ) %>% tab_options(table.border.top.color = "white",
+        heading.border.bottom.color = "black",table_body.border.bottom.color = "black",
+        table.border.bottom.color = "white",
+        table_body.hlines.color = "white") %>% data_color(columns = Baseline,
+               colors = "#FEF0D9")%>% data_color(columns = Midline,
+               colors = "lightpink") %>% data_color(columns = Endline,
+               colors = "#990000") %>% tab_source_note(
+        source_note = md("note: The entrepreneurial ability is the commutative and rescaled score aggregating the self-assessed ranks to the ten entrepreneurial skills. Firstly, we convert entrepreeurial ability, income engaging activities, self-employed into a z-score, average across these ways and then re-build a z-score of the avergae. "))
+```
+
+
+### 5.1.1 Entrepreneurial Ability
+From table 1, row 1 shows the impact on entrepreneurship skills. At baseline, the score of entrepreneurship skills is quite high (71.8). The midline ITT estimate is 5.63, it means an increase of 5.63 (8%) from baseline to midline. The endline ITT estimate is 1.8, it means an increase of 1.8 (3%) from midline to endline and the total increase is 11%.
+
+From figure 2, we can see the scores, at baseline, midline, endline, of ten entrepreneurship skills which are to run business, business opportunities, obtain credit, save invest, manage employees, manage financials, bargain inputs, bargain outputs, protect assets, collect money. Obviously, the area of midline and endline are cover the area of baseline so the program increases entrepreneurial skills on all ten dimensions at midline and endline. Therefore, improved entrepreneurial skills support treated girls to engage actual labor market activities and run small business.
+
+```{r, echo=FALSE,warning=FALSE,error=FALSE}
+
+Abilities <- data.frame(
+    row.names = c("Baseline", "Midline", "Endline"),
+      Run_Business = c(5.5, 6.5, 6.3 ),
+      Business_opportunities = c(6.3, 7.2, 7.1),
+      Obtain_credit = c(6.0, 6.9, 6.8),
+      Save_Invest = c(6.5, 7.6, 7.3),
+      Manage_employees = c(6.6, 7.8, 7.6),
+      Manage_financials = c(5.9, 7.2, 6.9),
+      Bargins_inputs = c(5.9, 7.2, 7.0),
+      Bargins_outputs= c(7.5, 8.6, 8.3),
+      Protect_assets = c(5.5, 6.8, 6.6),
+      Collect_money = c(4.5, 5.9, 5.6)
+)
+max_min <- data.frame(
+  Run_Business = c(10, 0), Business_opportunities = c(10, 0), Obtain_credit = c(10, 0),
+  Save_Invest = c(10, 0), Manage_employees = c(10, 0),Manage_financials = c(10, 0),
+  Bargins_inputs = c(10, 0), Bargins_outputs = c(10, 0), Protect_assets = c(10, 0),Collect_money = c(10, 0)
+)
+rownames(max_min) <- c("Max", "Min")
+sb <- rbind(max_min, Abilities)
+
+radarchart(sb, title = "The score of Entrepreneurship abilities at midline", pfcol = scales::alpha("grey", 0.3), plwd = 2) 
+legend(-2.6,-0.5,
+       legend=c("Baseline","MIdline","Endline"),
+       pch=c(16,16),
+       col=c("black","green","red"),
+       lty=c(1,2,2))
+
+```
+
+### 5.1.2 Income Engaging Activities
+From table 1, row 2 shows an impact on actual labor market activities of adolescent girls. We find that girls who experience midline and endline are 6.8pp and 4.9pp more likely to be engaged in actual labor market activities. It means that increases of 66% (midline) and 49% (endline) over the baseline value. Therefore, entrepreneurial economic progress is successful because of a qualified and skilled labor force (Shatakishvili, 2021). More women who have better entrepreneurial skills are accepted by labor market activities.
+### 5.1.3 Self-employed
+From table 1, row 3 shows an impact on adolescent girls engaging in self-employment activities. The ITT estimated value of self-employment at midline is double the value of self-employment at baseline (0.122 vs 0.063). The value of self-employment at the endline is 0.095 that is 50% higher. The aim of entrepreneurship education is fostering creativity, innovation and self-employment (Thomas M, 2012). Thus, entrepreneurship education is very important for women to run their own business and overcome economic empowerment.
+
+\newpage
+## 5.2 Control Over the Body
+
+This table combined parts data of Control Over the Body and Aspirations. It is significant because this is related to the important determinant of women's participation in the long-term workplace. In this table we could find the impacts of ELA brings to the adolescent girls. The rate of having baby/babies in treatment group is 2.7pp less than the control group. Postponing marriage is a good idea. The good news is, the girls in treatment group is 6.99pp less to be married or cohabiting comparing to the control group. However, the marriage rate grows from 12% to 18% in control group which means the treatment group effectively alleviated the problem of premature marriage. 
+
+
+```{r, echo=FALSE}
+df <- read.xlsx("Data666.xlsx")
+
+
+
+data_0 <- formattable(df, align = c("l", rep("r", NCOL(data) - 1)),
+                      list(`Indicators` = formatter("span", style = ~ style(color = "grey", font.weight = "bold")), 
+`Midline` = color_bar("#FA614B"), 
+`Baseline` = formatter("span", 
+style = x ~ style(color = ifelse(x < 0, "red", "green")))))
+
+
+
+gt_tbl<-gt(data_0)
+gt_tbl <-
+  gt_tbl %>%
+  tab_header(
+    title = "Table 2: ITT Impacts On Girls",
+    subtitle = "Control Over The Body & Aspirations")%>%
+  tab_source_note(
+    source_note = md("Source Note: Women’s Economic Empowerment In Action: Evidence from a randomized control trial in Africa. (n.d.). Human Rights Documents Online. https://doi.org/10.1163/2210-7975_hrd-4022-2015073 "))
+
+gt_tbl
+
+
+```
+### 5.2.1 Disadvantages of early marriage and early childbearing 
+Also, row 5 introduce the aspiration for suitable age at marriage for a woman. We could see an unormal age on midline which is 77 and 69 on endline. In fact, in South Africa, the girls in age group between 15~19 are married. About half of the girls report their marriage age is under 18 years old and majority of them got pregnant when they got married [@a2]. 
+
+Pregnancy at an early age can be harmful to the body. Comparing to the mother whose age is between 25 ~ 29, the young mother will face to the problem of preterm birth, underweight babies, babies’ death, etc. [@a2]. On row 7 we find the HIV knowledge is only 3.79/6 on baseline, which explained the reason why the population of young mothers is so big (Bandiera, 2018). 
+
+Premature marriage limits women's access to higher education and thus misses out on more job opportunities [@a2]. Therefore, the girls after treatment could improve their economic and social empowerment (Bandiera, 2018). 
+
+\newpage
+
+# 6 Discussion
+
+The results describe the economic empowerment and control over the body of adolescent girls. Firstly, the ELA program provides vocational skills and life skills with girls. Therefore, vocational skills focus on economic empowerment and life skills focus on control over the body. Firstly, adolescent girls learnt vocational skills to improve their entrepreneurial ability. It is a causality that more adolescent girls were accepted by the labor market and tried to run their own business. We think professional knowledge is the basic thing of overcoming economic empowerment. Secondly, adolescent girls learnt life skills to improve their consciousness of body safety. When girls know the knowledge of childbearing, marriage and sex, they can realize risks, harm and disadvantages to protect themslevs better. Therefore, we think life knowledge protects adolescent girls’ raising.
+
+## 6.1 The application of Microfinance
+
+In the ELA program, we can see that microfinance support was obtained two years(midline) after the planned intervention. Because the terms of the loan were not very clear, the number of people who can get support was very small. As a result, in the fourth year of continuous intervention (endline), the reference result was the gap between the results of receive treatment groups that did not receive microfinance support and those that did receive microfinance support in the first two years and control groups. We can see from the design here that microfinance can not explain whether it has a substantial impact, but we can see from the table3 data that after the intervention, the entrepreneurship rate is significantly increased, which also shows that the effect of the intervention is quite obvious. It is very important for adolescent girls to be taught life skills and vocational skills so that after two years they have the ability to support themselves so that they can improve their economic ability and achieve social status[@dd]. In the future, we can do some more advanced research in women's career development planning.
+
+## 6.2 Self-employment Activities
+
+From table 3, we can see more adolescent girls engaging in self-employment activities obviously. It is beneficial for women to fight for economic empowerment. More adolescent girls tried to run a business after they took part in the ELA program. At midline and endline, rates of self- employment are double those at baseline. Entrepreneurship determines women’s financial future, rather than the selling of our labor (Liz 2021). Therefore, stronger entrepreneurial ability supports women to engage in self-employment activities. Entrepreneurship is an enlightenment that leads women’s financial future,  more women are waking up from economic empowerment.
+
+However, the death rate of small businesses is a non-negligible problem with the increase of adolescent girls engaging in self-employment activities. Firstly, the first five years of running a business have an 8.3% death rate per year in 12 low-income countries (McKenzie and Paffhausen 2017). Therefore, adolescent girls who are at midline, endline should know the risk of self-employment activities because the death rate of them is high. Furthermore, we find younger firms are more likely to die (17% death rate) and the death rates of female owners are higher (McKenzie and Paffhausen 2017). The participants of this study are all adolescent girls. If they want to engage in self-employment activities, they should bear the higher death rates of their business.
+
+\newpage
+
+## 6.3 population and control over the body
+
+Further more, all the data above shows that ITT estimation has greatly improved in helping women's empowerment, it is still questionable whether this program is applicable to all women or not. These data are just an idealized conjecture. There are still about 90 countries in the world with the problem of inequality of income between male and female [@a1]. If we want this problem to be completely improved, government's support and male's cooperation is needed. For example, for jobs related to politics, the government can provide more positions for women. This is a kind of reasonable way to achieving gender equality and improve women's empowerment [@a1]. This action could also making women's roles in society more significant which consistent with the goal of ELA program. 
+
+
+
+# 7 Conclusions
+
+Women's issue is still a sensitive topic in many countries especially in developing countries. Indeed, many countries have proposed some improvements for disadvantaged groups such as female and have implemented them. But in some countries like Uganda there is still a need for an organization like the ELA program to help. The large population of young people in Uganda aggravates the difficulties of young women in employment and thus the economic empowerment of women is weak. Moreover, unemployment of young girls leads to problems of early marriage and early childbearing. So, control over the body becomes another significant goal. 
+
+In this paper, we find out improving entrepreneurial skills could enhancing women's economic empowerment through supporting female's participation in actual labor market activities and running small businesses. Thus, entrepreneurship education is needed. Further more, we consider the harms which pregnancy at a very young age brings to a girl. So, we provide sex and higher education for girls. This action not only lead to more employment opportunities for girls, but also help them understand how to protect their bodies. We believe the girls in treatment group could own a better future life and for all female like the girls in Uganda could no longer need to be trapped in some bad stereotypes. 
+
+
+\newpage
+
+# Reference
+
+
+
+
+
+
+
+
+
+
