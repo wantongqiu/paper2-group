@@ -163,7 +163,7 @@ From table 1, row 1 shows the impact on entrepreneurship skills. At baseline, th
 
 From figure 2, we can see the scores, at baseline, midline, endline, of ten entrepreneurship skills which are to run business, business opportunities, obtain credit, save invest, manage employees, manage financials, bargain inputs, bargain outputs, protect assets, collect money. Obviously, the area of midline and endline are cover the area of baseline so the program increases entrepreneurial skills on all ten dimensions at midline and endline. Therefore, improved entrepreneurial skills support treated girls to engage actual labor market activities and run small business.
 
-```{r, echo=FALSE,warning=FALSE,error=FALSE}
+```{r, echo=FALSE,warning=FALSE,error=FALSE,fig.width = 5, fig.height =5, fig.align='center'}
 
 Abilities <- data.frame(
     row.names = c("Baseline", "Midline", "Endline"),
@@ -186,12 +186,12 @@ max_min <- data.frame(
 rownames(max_min) <- c("Max", "Min")
 sb <- rbind(max_min, Abilities)
 
-radarchart(sb, title = "The score of Entrepreneurship abilities at midline", pfcol = scales::alpha("grey", 0.3), plwd = 2) 
-legend(-2.6,-0.5,
+radarchart(sb, title = "The score of Entrepreneurship abilities at midline", pfcol = scales::alpha("grey", 0.3), plwd = 2, vlcex = 0.5) 
+legend(0.9,-0.6,
        legend=c("Baseline","MIdline","Endline"),
        pch=c(16,16),
        col=c("black","green","red"),
-       lty=c(1,2,2))
+       lty=c(1,2,2), cex=0.5)
 
 ```
 
