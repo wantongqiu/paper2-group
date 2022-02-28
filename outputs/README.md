@@ -1,5 +1,2 @@
-# starter_folder
-
-This repo....
-
-It is organised as follows...
+This project is talking about whether an intervention in young girls' growth could achieve the goal of improving their economic empowerment and let them know how to properly control their bodies. We looked into the ELA program in Uganda, and establish a linear model to use ITT estimation to analyze the results. In the end, we find the ITT impacts on the girls are really significant in both aspects (economic empowerment and control over the body). We come to the conclusion with, (1) girls could strengthen economic empowerment by runing their own business. (2) Accepting sex and higher education to protect themselves and make them more competitive in the workplace. 
+We use the data, Uganda_ELA_Panel_wid, to observe and abstract some important variables for key analyzation. 

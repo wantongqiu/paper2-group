@@ -34,8 +34,8 @@ library(gridExtra)
 ```
 
 ```{r,echo=FALSE,warning=FALSE, message=FALSE}
-Paper2_2 <- read_csv("/Users/wantongqiu/Desktop/paper2/Paper2_2.csv")
-table2 <- read_csv("/Users/wantongqiu/Desktop/paper2/Paper2_data1.csv")
+Paper2_2 <- read_csv("/Users/wantongqiu/Desktop/paper group 2/inputs/data/Paper2_2.csv")
+table2 <- read_csv("/Users/wantongqiu/Desktop/paper group 2/inputs/data/Paper2_data1.csv")
 ```
 
 
