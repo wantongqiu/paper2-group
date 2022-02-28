@@ -14,7 +14,8 @@ bibliography: [ref_list_.bib]
 link-citations: yes
 nocite: '@*'
 ---
-
+Here is some body text.^[This footnote will appear at the bottom of the page: https://github.com/wantongqiu/paper2-group
+]
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
